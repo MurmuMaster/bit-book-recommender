@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIT Book Recommender System</title>
+    <style>
+        .book {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .book img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>BIT Book Recommender System</h1>
+    <form action="{{ url_for('homepage') }}" method="POST">
+        <label for="branch">Branch:</label>
+        <input id="branch" name="branch" type="text" required> <br> <br>
+        <label for="sem">Semester:</label>
+        <input id="sem" name="sem" type="number" required> <br> <br>
+        <label for="sub">Subject:</label>
+        <input id="sub" name="sub" type="text" required> <br> <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if books %}
+        <h2>Recommended Books</h2>
+        <div>
+            {% for book in books %}
+                <div class="book">
+                    <img src="{{ book['Img'] }}" alt="Book Image">
+                    <h3>{{ book['Title'] }}</h3>
+                    <p><strong>Author:</strong> {{ book['Author'] }}</p>
+                    <p><strong>Publisher:</strong> {{ book['Publisher'] }}</p>
+                    <p><strong>Price:</strong> {{ book['Price'] }}</p>
+                    <p><strong>Rating:</strong> {{ book['Rating'] }} / 5</p>
+                    <a href="{{ book['Buy Link'] }}" target="_blank">Buy Now</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>
