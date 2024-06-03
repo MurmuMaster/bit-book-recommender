@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book['Title'] }}</title>
+    <style>
+        .book-details {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px;
+            width: 300px;
+        }
+        .book-details img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ book['Title'] }}</h1>
+    <div class="book-details">
+        <img src="{{ book['Img'] }}" alt="Book Image">
+        <h3>{{ book['Title'] }}</h3>
+        <p><strong>Author:</strong> {{ book['Author'] }}</p>
+        <p><strong>Publisher:</strong> {{ book['Publisher'] }}</p>
+        <p><strong>Price:</strong> {{ book['Price'] }}</p>
+        <p><strong>Rating:</strong> {{ book['Rating'] }} / 5</p>
+        <a href="{{ book['Buy Link'] }}" target="_blank">Buy Now</a>
+    </div>
+    <a href="{{ url_for('homepage') }}">Back to Home</a>
+</body>
+</html>

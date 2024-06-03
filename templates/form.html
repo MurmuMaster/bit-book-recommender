@@ -36,7 +36,10 @@
         <div>
             {% for book in books %}
                 <div class="book">
-                    <img src="{{ book['Img'] }}" alt="Book Image">
+                    <a href="{{ url_for('book_details', book_id=book['bookId']) }}">
+                        <img src="{{ book['Img'] }}" alt="Book Image">
+                    </a>
+                    <!-- <img src="{{ book['Img'] }}" alt="Book Image"> -->
                     <h3>{{ book['Title'] }}</h3>
                     <p><strong>Author:</strong> {{ book['Author'] }}</p>
                     <p><strong>Publisher:</strong> {{ book['Publisher'] }}</p>
